@@ -18,7 +18,6 @@ def create_local_sim(A, k_hat):
     distance = a - 2*x + a.transpose()
     distance = distance.astype(np.float64)
     
-    # TODO
     distance_copy = np.zeros((n,n))
     distance_copy[:,:] = np.sqrt(distance[:,:])
     distance_copy.sort()
@@ -47,7 +46,5 @@ def run(W, k, ncut):
     evecs = X[:,(n-k):n]
     e_normed = evecs / np.tile(evecs.max(axis=1), (k,1)).transpose()
     kmeans = KMeans(n_clusters=k, random_state=0).fit(e_normed)
-    # TODO
     labels = kmeans.labels_
-    #np.zeros(n, dtype=np.uint32)
     return labels

@@ -1,3 +1,5 @@
+#This file serves as a test case for the spectral clustering algorithm for a fictional data set
+
 import math
 import h5py
 import numpy as np
@@ -5,7 +7,7 @@ import matplotlib.pyplot as plt
 import spectral_clustering
 
 colors = ['red', 'blue', 'green', 'black', 'pink']
-k_hat = 7       # k_hat as defined in the slides
+k_hat = 7
 
 def run(data_file, k, fig_file):
 	# data_file: contains n*d data matrix
@@ -16,9 +18,6 @@ def run(data_file, k, fig_file):
 	n = A.shape[0]  # number of data points
 	plt.figure()
 	
-	# To compute the similarity matrix 'W'
-	# and clustering assignment 'labels' with
-	# the following code
 	W = spectral_clustering.create_local_sim(A, k_hat)
 	for ncut in [False, True]:
 		labels = spectral_clustering.run(W, k, ncut)
